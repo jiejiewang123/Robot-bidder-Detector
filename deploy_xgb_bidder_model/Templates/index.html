@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html >
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Robot Detector</title>
+
+</head>
+
+<body style="background: #000;">
+    <div class="login">
+
+        <h1 style="color:Violet">Robot bidder prediction</h1>
+
+        <!action is where the data is sent to. In this case: predict page>
+        <form action="{{ url_for('predict') }}" method="post">
+            <input type="text" name="0_time_diff_counts" placeholder="concurrent biddings" required='required' /><br>
+            <input type="text" name="total_biddings" placeholder="total biddings" required='required' /><br>
+            <input type="text" name="ratio_zero_timeDiff2bids" placeholder="concurrent biddings percentage" required='required' /><br>
+            <input type="text" name="max_bids_per_auctio" placeholder="Max biddings one auction" required='required' /><br>
+            <input type="text" name="uniqueDevices2bids_ratio" placeholder="ratio of unique devices to bidding #" required='required' /><br>
+            <input type="text" name="uniqueCountry2bids_ratio" placeholder="ratio of unique countries to bidding #" required='required' /><br>
+            <input type="text" name="country_frequency" placeholder="unique country #" required='required' /><br>
+            <input type="text" name="uniqueURL2bids_ratio" placeholder="ratio of unique url to bidding #" required='required' /><br>
+            <input type="text" name="uniqueip2bids_ratio" placeholder="ratio of unique ip to bidding #" required='required' /><p>
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Detect Robot</button>
+        </form>
+        <br>
+        <br>
+        <h4 style="color: Violet;">
+        {{ prediction_result }}</h4>
+    </div>
+</body>
+</html>
